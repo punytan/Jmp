@@ -1,0 +1,35 @@
+%% cascade base
+
+%% around content -> {
+
+<h1>URL Shortener</h1>
+
+<form action="/shorten" method="POST">
+  <p>
+    <input type="url" name="url" placeholder="http://" size="60" />
+  </p>
+  <p>
+    <input type="text" name="memo" placeholder="memo (optional)" size="60" />
+  </p>
+    <input type="hidden" name="csrf_token" value="[% $context.csrf_token() %]" />
+  <p>
+    <input class="button primary icon add" type="submit" value="Shorten" />
+  </p>
+</form>
+
+<dl class="urls">
+
+    %% for $list -> $item {
+    <dt> <a href="[% $context.uri_for("id/" ~ $item.id) %]"> [% $context.uri_for("id/" ~ $item.id) %] </a> </dt>
+    <dd>
+        <p class="em">[% $item.memo %]</o>
+        <p>COUNT: [% $item.count %]</p>
+        <p>URL: [% $item.url %]</p>
+    </dd>
+    %% }
+
+</dl>
+
+%% }
+
+

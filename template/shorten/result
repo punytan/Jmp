@@ -1,0 +1,10 @@
+%% cascade base
+
+%% around content -> {
+  <h1>Result for </h1>
+
+  <p>[% $url %]</p>
+  <p> <a href="[% $context.uri_for("id/" ~ $id) %]">[% $context.uri_for("id/" ~ $id) %]</a> </p>
+
+%% }
+

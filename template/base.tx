@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+    <title> Jmp </title>
+    <meta charset="utf-8">
+    <meta name="csrf-token" content="[% $context.csrf_token() %]">
+    <script src="/static/js/jquery-1.7.2.min.js"></script>
+    <link href="/static/css/gh-buttons/gh-buttons.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/static/css/base.css" media="screen" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <div class="header"> <a href="/" class="button icon home">Home</a> </div>
+
+%% block content -> { }
+
+</body>
+
+</html>
+
