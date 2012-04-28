@@ -8,10 +8,8 @@ my $db = Jmp::DB::URL->new;
 
 sub index {
     my ($self, $context) = @_;
-
-    $context->stash->{list} = [ reverse @{ $db->list } ];
-
-    return $self->render("root/index");
+    $context->stash->{list} = $db->list;
+    $self->render("root/index");
 }
 
 1;

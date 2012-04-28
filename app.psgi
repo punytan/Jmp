@@ -2,6 +2,7 @@ use sane;
 use Jmp::Web;
 use Jmp::Router;
 use Jmp::DB::Session;
+use Plack::Builder;
 
 my $session = Jmp::DB::Session->new;
 
@@ -14,4 +15,8 @@ my $jmp = Jmp::Web->new(
     }
 );
 
-$jmp->to_app;
+builder {
+    enable_if { $ENV{PLACK_ENV} eq 'development' } 'Debug';
+    $jmp->to_app;
+};
+
